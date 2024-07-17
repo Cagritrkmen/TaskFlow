@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 
 
 function App() {
-  return <h1>Webpack and Babel</h1>;
+  return <h1>Cagri</h1>;
 }
 
 const container = document.getElementById('root');
