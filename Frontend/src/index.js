@@ -4,10 +4,12 @@ import ReactDOM from 'react-dom/client';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import "../src/styles/style.css"
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../src/styles/theme';
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Navbar />
 
       <Router>
@@ -15,7 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
           </Routes>
       </Router>
-    </>
+    </ThemeProvider>
   );
 }
 
