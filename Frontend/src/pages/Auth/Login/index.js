@@ -1,16 +1,15 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
-import registerSchema from '../Register/validations';
+import validationSchema from '../Login/validations';
 
-const Register = () => {
+const Login = () => {
     const formik = useFormik({
         initialValues: {
             email: '',
             password: '',
-            confirmPassword: '',
         },
-        validationSchema: registerSchema,
+        validationSchema: validationSchema,
         onSubmit: (values) => {
             console.log(values);
         },
@@ -24,9 +23,10 @@ const Register = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                }}>
-                <Typography variant="h4" gutterBottom>
-                    Kayıt Ol
+                }}
+            >
+                <Typography variant="h4">
+                    Giriş Yap
                 </Typography>
                 <form onSubmit={formik.handleSubmit}>
                     <TextField
@@ -54,21 +54,14 @@ const Register = () => {
                         helperText={formik.touched.password && formik.errors.password}
                         margin="normal"
                     />
-                    <TextField
+                    <Button
+                        color="primary"
+                        variant="contained"
                         fullWidth
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        label="Parola Tekrarı"
-                        type="password"
-                        value={formik.values.confirmPassword}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
-                        helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
-                        margin="normal"
-                    />
-                    <Button color="primary" variant="contained" fullWidth type="submit" style={{ marginTop: '16px' }}>
-                        Kayıt Ol
+                        type="submit"
+                        style={{ marginTop: '16px' }}
+                    >
+                        Giriş Yap
                     </Button>
                 </form>
             </Box>
@@ -76,4 +69,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;
