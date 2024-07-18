@@ -6,15 +6,18 @@ import Home from './pages/Home';
 import "../src/styles/style.css"
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../src/styles/theme';
+import Register from './pages/Auth/Register';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Navbar />
 
       <Router>
+      <Navbar />
+
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/register" element={<Register/>} />
           </Routes>
       </Router>
     </ThemeProvider>
