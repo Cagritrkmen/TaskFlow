@@ -45,7 +45,9 @@ export default function PrimarySearchAppBar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ mr: 5 }}>
-            <Button color="inherit">Login</Button>
+            <Link to="/login">
+              <Button color="inherit">Login</Button>
+            </Link>
             <Link to="/register">
               <Button color="inherit">Register</Button>
             </Link>

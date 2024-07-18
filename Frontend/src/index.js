@@ -7,6 +7,7 @@ import "../src/styles/style.css"
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../src/styles/theme';
 import Register from './pages/Auth/Register';
+import Login from './pages/Auth/Login';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register/>} />
+            <Route path="/login" element={<Login/>} />
           </Routes>
       </Router>
     </ThemeProvider>
