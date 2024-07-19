@@ -1,28 +1,29 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { ThemeProvider } from '@mui/material/styles';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import store from './store';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import "../src/styles/style.css"
-import { ThemeProvider } from '@mui/material/styles';
 import theme from '../src/styles/theme';
 import Register from './pages/Auth/Register';
 import Login from './pages/Auth/Login';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-
-      <Router>
-      <Navbar />
-
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/register" element={<Register/>} />
-            <Route path="/login" element={<Login/>} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
-      </Router>
-    </ThemeProvider>
+        </Router>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
