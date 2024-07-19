@@ -6,6 +6,7 @@ import validationSchema from '../Login/validations';
 const Login = () => {
     const formik = useFormik({
         initialValues: {
+            userName: '',
             email: '',
             password: '',
         },
@@ -29,6 +30,18 @@ const Login = () => {
                     Giriş Yap
                 </Typography>
                 <form onSubmit={formik.handleSubmit}>
+                    <TextField
+                        fullWidth
+                        id="userName"
+                        name="userName"
+                        label="Kullanıcı Adı"
+                        value={formik.values.userName}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={formik.touched.userName && Boolean(formik.errors.userName)}
+                        helperText={formik.touched.userName && formik.errors.userName}
+                        margin="normal"
+                    />
                     <TextField
                         fullWidth
                         id="email"
