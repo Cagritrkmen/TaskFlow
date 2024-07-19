@@ -14,6 +14,9 @@ const theme = createTheme({
         background: {
             default: '#ffffff',
         },
+        customBlack: {
+            main: "#000000",
+        },
     },
     typography: {
         fontFamily: 'Arial', 
