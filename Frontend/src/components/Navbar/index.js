@@ -17,23 +17,24 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar color='secondary' sx={{ paddingInline: 5 }} position="sticky">
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            TASKFLOW
-          </Typography>
+          <Link to={"/"} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              sx={{
+                mr: 2,
+                display: { md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              TASKFLOW
+            </Typography>
+          </Link>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -45,10 +46,10 @@ export default function PrimarySearchAppBar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ mr: 5 }}>
-            <Link to="/login">
+            <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Button color="inherit">Login</Button>
             </Link>
-            <Link to="/register">
+            <Link to="/register" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Button color="inherit">Register</Button>
             </Link>
           </Box>
