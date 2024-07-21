@@ -61,7 +61,9 @@ export default function PrimarySearchAppBar() {
                 aria-haspopup="true"
                 color="inherit"
               >
-                <AccountCircle />
+                <Link to={"/profile"} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <AccountCircle />
+                </Link>
               </IconButton>
             </Tooltip>
           </Box>

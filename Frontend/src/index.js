@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import theme from '../src/styles/theme';
 import Register from './pages/Auth/Register';
 import Login from './pages/Auth/Login';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile/>} />
           </Routes>
         </Router>
       </ThemeProvider>
