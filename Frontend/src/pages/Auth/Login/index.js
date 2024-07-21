@@ -7,7 +7,6 @@ const Login = () => {
     const formik = useFormik({
         initialValues: {
             userName: '',
-            email: '',
             password: '',
         },
         validationSchema: validationSchema,
@@ -40,18 +39,6 @@ const Login = () => {
                         onBlur={formik.handleBlur}
                         error={formik.touched.userName && Boolean(formik.errors.userName)}
                         helperText={formik.touched.userName && formik.errors.userName}
-                        margin="normal"
-                    />
-                    <TextField
-                        fullWidth
-                        id="email"
-                        name="email"
-                        label="E-posta"
-                        value={formik.values.email}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        error={formik.touched.email && Boolean(formik.errors.email)}
-                        helperText={formik.touched.email && formik.errors.email}
                         margin="normal"
                     />
                     <TextField
