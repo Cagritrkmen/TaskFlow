@@ -62,8 +62,17 @@ const kanbanSlice = createSlice({
       const [movedCard] = state.lists[sourceListIndex].cards.splice(source.index, 1);
       state.lists[destinationListIndex].cards.splice(destination.index, 0, movedCard);
     },
+    updateCard: (state, action) => {
+      const { cardId, title } = action.payload;
+      state.lists.forEach(list => {
+        const card = list.cards.find(card => card.id === cardId);
+        if (card) {
+          card.title = title;
+        }
+      });
+    },
   },
 });
 
-export const { addCard, moveCard } = kanbanSlice.actions;
+export const { addCard, moveCard, updateCard } = kanbanSlice.actions;
 export default kanbanSlice.reducer;
