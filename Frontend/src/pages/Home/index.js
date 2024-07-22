@@ -9,9 +9,7 @@ function Home() {
 
   return (
     <Container>
-      <Typography variant="h4" align="center" gutterBottom>
-        Trello Panom
-      </Typography>
+     
       <KanbanBoard lists={lists} />
     </Container>
   );

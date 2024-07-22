@@ -1,20 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Button } from '@mui/material';
 
-function AddCardDialog({ open, handleClose, handleAddCard }) {
-  const [newCardTitle, setNewCardTitle] = useState('');
+function CardDialog({ open, handleClose, card, handleAddCard, handleUpdateCard }) {
+  const [cardTitle, setCardTitle] = useState('');
 
-  const handleAdd = () => {
-    handleAddCard(newCardTitle);
-    setNewCardTitle('');
+  useEffect(() => {
+    if (card) {
+      setCardTitle(card.title);
+    } else {
+      setCardTitle('');
+    }
+  }, [card]);
+
+  const handleSave = () => {
+    if (card) {
+      handleUpdateCard(card.id, cardTitle);
+    } else {
+      handleAddCard(cardTitle);
+    }
+    handleClose();
   };
 
   return (
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>Yeni Kart Ekle</DialogTitle>
+      <DialogTitle>{card ? 'Kartı Güncelle' : 'Yeni Kart Ekle'}</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          Lütfen yeni kartın başlığını girin.
+          Lütfen kartın başlığını girin.
         </DialogContentText>
         <TextField
           autoFocus
@@ -22,20 +34,20 @@ function AddCardDialog({ open, handleClose, handleAddCard }) {
           label="Kart Başlığı"
           fullWidth
           variant="outlined"
-          value={newCardTitle}
-          onChange={(e) => setNewCardTitle(e.target.value)}
+          value={cardTitle}
+          onChange={(e) => setCardTitle(e.target.value)}
         />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose} color="primary">
           İptal
         </Button>
-        <Button onClick={handleAdd} color="primary">
-          Ekle
+        <Button onClick={handleSave} color="primary">
+          {card ? 'Güncelle' : 'Ekle'}
         </Button>
       </DialogActions>
     </Dialog>
   );
 }
 
-export default AddCardDialog;
+export default CardDialog;
