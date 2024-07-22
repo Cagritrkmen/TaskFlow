@@ -6,6 +6,8 @@ import registerSchema from '../Register/validations';
 const Register = () => {
     const formik = useFormik({
         initialValues: {
+            name: '',
+            surname: '',
             userName: '',
             email: '',
             password: '',
@@ -30,6 +32,30 @@ const Register = () => {
                     Kayıt Ol
                 </Typography>
                 <form onSubmit={formik.handleSubmit}>
+                    <TextField
+                        fullWidth
+                        id="name"
+                        name="name"
+                        label="Ad"
+                        value={formik.values.name}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={formik.touched.name && Boolean(formik.errors.name)}
+                        helperText={formik.touched.name && formik.errors.name}
+                        margin="normal"
+                    />
+                    <TextField
+                        fullWidth
+                        id="surname"
+                        name="surname"
+                        label="Soyad"
+                        value={formik.values.surname}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={formik.touched.surname && Boolean(formik.errors.surname)}
+                        helperText={formik.touched.surname && formik.errors.surname}
+                        margin="normal"
+                    />
                     <TextField
                         fullWidth
                         id="userName"
