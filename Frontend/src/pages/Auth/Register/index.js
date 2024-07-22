@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
 import registerSchema from '../Register/validations';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const formik = useFormik({
@@ -23,7 +24,7 @@ const Register = () => {
         <Container maxWidth="sm">
             <Box
                 sx={{
-                    marginTop: 8,
+                    marginTop: 4,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -110,6 +111,13 @@ const Register = () => {
                         Kayıt Ol
                     </Button>
                 </form>
+                <Typography variant="body2" style={{ marginTop: '16px' }}>
+                    Zaten bir hesabınız var mı?{' '}
+
+                    <Link to="/login" >
+                        Giriş yap
+                    </Link>
+                </Typography>
             </Box>
         </Container>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
 import validationSchema from '../Login/validations';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const formik = useFormik({
@@ -64,6 +65,13 @@ const Login = () => {
                         Giriş Yap
                     </Button>
                 </form>
+                <Typography variant="body2" style={{ marginTop: '16px' }}>
+                    Hesabınız yok mu?{' '}
+
+                    <Link to="/register" >
+                        Kayıt ol
+                    </Link>
+                </Typography>
             </Box>
         </Container>
     );
