@@ -3,20 +3,31 @@ import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, T
 
 function CardDialog({ open, handleClose, card, handleAddCard, handleUpdateCard }) {
   const [cardTitle, setCardTitle] = useState('');
+  const [cardDescription, setCardDescription] = useState('');
+
 
   useEffect(() => {
     if (card) {
       setCardTitle(card.title);
+      setCardDescription(card.description || '');
+
     } else {
       setCardTitle('');
+      setCardDescription('');
+
     }
   }, [card]);
 
   const handleSave = () => {
+    const cardData = {
+      title: cardTitle,
+      description: cardDescription,
+
+    };
     if (card) {
-      handleUpdateCard(card.id, cardTitle);
+      handleUpdateCard(card.id, cardData);
     } else {
-      handleAddCard(cardTitle);
+      handleAddCard(cardData);
     }
     handleClose();
   };
@@ -26,7 +37,7 @@ function CardDialog({ open, handleClose, card, handleAddCard, handleUpdateCard }
       <DialogTitle>{card ? 'Kartı Güncelle' : 'Yeni Kart Ekle'}</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          Lütfen kartın başlığını girin.
+          Lütfen kart bilgilerini girin.
         </DialogContentText>
         <TextField
           autoFocus
@@ -36,6 +47,14 @@ function CardDialog({ open, handleClose, card, handleAddCard, handleUpdateCard }
           variant="outlined"
           value={cardTitle}
           onChange={(e) => setCardTitle(e.target.value)}
+        />
+        <TextField
+          margin="dense"
+          label="Açıklama"
+          fullWidth
+          variant="outlined"
+          value={cardDescription}
+          onChange={(e) => setCardDescription(e.target.value)}
         />
       </DialogContent>
       <DialogActions>

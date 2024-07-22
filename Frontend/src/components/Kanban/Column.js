@@ -22,15 +22,15 @@ function Column({ list, cards }) {
     setSelectedCard(null);
   };
 
-  const handleAddCard = (title) => {
-    if (title.trim()) {
-      dispatch(addCard({ listId: list.id, title }));
+  const handleAddCard = (cardData) => {
+    if (cardData.title.trim()) {
+      dispatch(addCard({ listId: list.id, ...cardData }));
       handleClose();
     }
   };
 
-  const handleUpdateCard = (id, title) => {
-    dispatch(updateCard({ cardId: id, title }));
+  const handleUpdateCard = (id, cardData) => {
+    dispatch(updateCard({ cardId: id, ...cardData }));
   };
 
   return (
